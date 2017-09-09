@@ -11,6 +11,8 @@ var cardType = ""; // determines whether cards are basic or cloze-deleted
 
 var basic;
 
+var cloze;
+
 var basicCards = []; // stores basic flashcard objects
 
 var clozeCards = []; // stores cloze-deleted flashcard objects
@@ -34,6 +36,7 @@ inquirer.prompt([
 		break;
 
 		case 'cloze':
+			clozeGen();
 		break;
 	}
 })
@@ -82,12 +85,22 @@ function clozeGen() {
 
 		cloze = Cloze(answers.completeText, answers.clozeText);
 
-		clozeCards.push(cloze);
+		if (cloze.error === false){
+			
+			clozeCards.push(cloze);
 
-		console.log("\nNew card created! \nQuestion: " + answers.frontText 
-			+ "\nAnswer: " + answers.backText);
+			console.log("\nNew card created! \nComplete Question: " + answers.completeText 
+				+ "\nAnswer: " + answers.clozeText);
 
-		nextCard(cardType, clozeCards);
+			nextCard(cardType, clozeCards);
+		}
+
+		else {
+			console.log("Card NOT created!");
+			nextCard(cardType, clozeCards);
+		}
+
+		
 	})	
 } // END OF clozeGen function
 
@@ -105,12 +118,22 @@ function nextCard(type,arr){
 		if((newCard == "yes" || newCard == "y") && type == "basic"){
 			basicGen();
 		}
+		else if((newCard == "yes" || newCard == "y") && type == "cloze"){
+			clozeGen();
+		}
 		else{
 			console.log("\nHere is a list of your flashcards: ");
 			
 			for (i = 0; i < arr.length; i++){
 
-				console.log("\n-------------------------\nQuestion: " + arr[i].front + "\nAnswer: " + arr[i].back);
+				if (type == "basic"){
+					console.log("\n-------------------------\nQuestion: " + arr[i].front + "\nAnswer: " + arr[i].back);
+				}
+				else {
+					console.log("\n-------------------------\nQuestion: " + arr[i].partial + "\nAnswer: " + arr[i].cloze
+						+ "\nFull Question: " + arr[i].fullText);
+				}
+				
 			}
 		}
 	})
