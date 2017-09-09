@@ -14,6 +14,11 @@ function Cloze(text, cloze) {
 		return;
 	}
 
+	// Scope-safe constructor code
+	else if (!(this instanceof Cloze)) { 
+    	return new Cloze(text, cloze);
+  	}
+
 
 	this.fullText = text; // full text
 	this.cloze = cloze; // cloze-deleted text only
