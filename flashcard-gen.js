@@ -98,9 +98,7 @@ function clozeGen() {
 		else {
 			console.log("Card NOT created!");
 			nextCard(cardType, clozeCards);
-		}
-
-		
+		}	
 	})	
 } // END OF clozeGen function
 
