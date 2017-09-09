@@ -1,0 +1,22 @@
+{
+  "name": "flashcard-generator",
+  "version": "1.0.0",
+  "description": "node application that generates the front and back of a flashcard either with or without cloze-deletions",
+  "main": "flashcard-gen.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/risaco/flashcard-generator.git"
+  },
+  "author": "risaco",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/risaco/flashcard-generator/issues"
+  },
+  "homepage": "https://github.com/risaco/flashcard-generator#readme",
+  "dependencies": {
+    "inquirer": "^3.2.3"
+  }
+}
