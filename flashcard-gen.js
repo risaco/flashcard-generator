@@ -1,4 +1,4 @@
-// call for inquirer package
+// call for inquirer package -- must install this package first!
 var inquirer = require("inquirer");
 
 // call for Basic and Cloze constructors
@@ -8,13 +8,10 @@ var Basic = require("./BasicCard.js");
 var nodeArgs = process.argv;
 
 var cardType = ""; // determines whether cards are basic or cloze-deleted
-
 var basic;
-
 var cloze;
 
 var basicCards = []; // stores basic flashcard objects
-
 var clozeCards = []; // stores cloze-deleted flashcard objects
 
 // ***** Use the Flashcard Generator *****
@@ -32,7 +29,7 @@ inquirer.prompt([
 
 	switch (cardType) {
 		case 'basic':
-			basicGen();			
+			basicGen();
 		break;
 
 		case 'cloze':
@@ -62,11 +59,11 @@ function basicGen() {
 
 		basicCards.push(basic);
 
-		console.log("\nNew card created! \nQuestion: " + answers.frontText 
+		console.log("\nNew card created! \nQuestion: " + answers.frontText
 			+ "\nAnswer: " + answers.backText);
 
 		nextCard(cardType, basicCards);
-	})	
+	})
 } // END OF basicGen function
 
 // Prompts user to generate new basic flashcard
@@ -86,10 +83,10 @@ function clozeGen() {
 		cloze = Cloze(answers.completeText, answers.clozeText);
 
 		if (cloze.error === false){
-			
+
 			clozeCards.push(cloze);
 
-			console.log("\nNew card created! \nComplete Question: " + answers.completeText 
+			console.log("\nNew card created! \nComplete Question: " + answers.completeText
 				+ "\nAnswer: " + answers.clozeText);
 
 			nextCard(cardType, clozeCards);
@@ -98,8 +95,8 @@ function clozeGen() {
 		else {
 			console.log("Card NOT created!");
 			nextCard(cardType, clozeCards);
-		}	
-	})	
+		}
+	})
 } // END OF clozeGen function
 
 function nextCard(type,arr){
@@ -112,7 +109,7 @@ function nextCard(type,arr){
 	]).then(function(answers){
 
 		var newCard = answers.newCard.toLowerCase();
-		
+
 		if((newCard == "yes" || newCard == "y") && type == "basic"){
 			basicGen();
 		}
@@ -121,7 +118,7 @@ function nextCard(type,arr){
 		}
 		else{
 			console.log("\nHere is a list of your flashcards: ");
-			
+
 			for (i = 0; i < arr.length; i++){
 
 				if (type == "basic"){
@@ -131,7 +128,7 @@ function nextCard(type,arr){
 					console.log("\n-------------------------\nQuestion: " + arr[i].partial + "\nAnswer: " + arr[i].cloze
 						+ "\nFull Question: " + arr[i].fullText);
 				}
-				
+
 			}
 		}
 	})
@@ -144,16 +141,16 @@ function nextCard(type,arr){
 //     "Who was the first president of the United States?", "George Washington");
 
 // // "Who was the first president of the United States?"
-// console.log(firstPresident.front); 
+// console.log(firstPresident.front);
 
 // // "George Washington"
-// console.log(firstPresident.back); 
+// console.log(firstPresident.back);
 
 // var firstPresidentCloze = Cloze(
 //     "George Washington was the first president of the United States.", "George Washington");
 
 // // "George Washington"
-// console.log(firstPresidentCloze.cloze); 
+// console.log(firstPresidentCloze.cloze);
 
 // // " ... was the first president of the United States.
 // console.log(firstPresidentCloze.partial);""
