@@ -1,7 +1,7 @@
 # flashcard-generator
 Advanced JavaScript Application using Cloze Constructors
 
-This a backend application which uses Node.js to generate flashcard questions and answers. This application highlights the use of cloze-deletions, external constructor functions, and the node package "inquirer".
+This a backend application which uses Node.js to generate flashcard questions and answers. This application highlights the use of cloze-deletions, scope-safe constructor functions, and the node package "inquirer".
 
 The backend essentially constitutes an API that allows users to create two types of flashcards:
 
