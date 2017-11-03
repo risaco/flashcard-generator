@@ -29,9 +29,20 @@ A flash card built this way has three parts:
 -The cloze deletion. This is the text we've chosen to remove: "George Washington".
 -The partial text. This is what we get if we remove the cloze deletion from the full text: "... was the first president of the United States.
 
+### Basic Card
+![alt text](images/flashcard-generator-1.PNG "Basic Card")
+
+### Cloze-Deleted Card
+![alt text](images/flashcard-generator-3.PNG "Cloze-Deleted Card")
+
 ### Technologies
-JavaScript
-Node.js
+JavaScript | Node.js
 
 ### Dependencies
 "inquirer"
+
+### Run This Application
+* This application requires Node to be installed
+* Clone this repository
+* Inside the repository directory in terminal/bash type: npm install inquirer
+* To start the application: node flashcard-gen.js

@@ -17,6 +17,6 @@
   },
   "homepage": "https://github.com/risaco/flashcard-generator#readme",
   "dependencies": {
-    "inquirer": "^3.2.3"
+    "inquirer": "^3.3.0"
   }
 }
